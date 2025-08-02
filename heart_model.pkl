@@ -1,0 +1,45 @@
+import pickle
+import pandas as pd
+
+# Load the trained heart disease prediction model
+with open('heart.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+# Define a function to take input and return prediction
+def predict_heart_disease(input_data: dict):
+    # Convert input dictionary to DataFrame
+    df = pd.DataFrame([input_data])
+    
+    # Make prediction
+    prediction = model.predict(df)
+    
+    # Optional: Get prediction probability if available
+    if hasattr(model, "predict_proba"):
+        prob = model.predict_proba(df)
+        return prediction[0], prob.max()
+    else:
+        return prediction[0], None
+
+# Example usage
+if __name__ == '__main__':
+    # Example input: Replace these with user input in real application
+    sample_input = {
+        'age': 52,
+        'sex': 1,
+        'cp': 0,
+        'trestbps': 125,
+        'chol': 212,
+        'fbs': 0,
+        'restecg': 1,
+        'thalach': 168,
+        'exang': 0,
+        'oldpeak': 1.0,
+        'slope': 2,
+        'ca': 1,
+        'thal': 2
+    }
+
+    result, probability = predict_heart_disease(sample_input)
+    print(f"Predicted Class: {result}")
+    if probability is not None:
+        print(f"Confidence: {probability:.2f}")
