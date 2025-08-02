@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# macOS & system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Data
+data/
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.db
+*.sqlite
+*.h5
+
+# Model artifacts
+models/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.onnx
+
+# Watsonx/Watson Studio artifacts
+*.rhistory
+*.bak
+*.swp
+*.swo
+.project
+.metadata/
+*.json  # if you generate large Watson metadata files
+
+# Deployment files (optional)
+*.tar.gz
+*.zip
+
+# Output folders
+__output__/
+output/
+results/
+checkpoints/
